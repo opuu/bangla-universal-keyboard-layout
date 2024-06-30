@@ -1175,8 +1175,8 @@
           let newText =
             text.slice(0, cursorPosition) + letter + text.slice(cursorPosition);
           event.target.value = newText;
-          event.target.selectionStart = cursorPosition + 1;
-          event.target.selectionEnd = cursorPosition + 1;
+          event.target.selectionStart = cursorPosition + letter.length;
+          event.target.selectionEnd = cursorPosition + letter.length;
         } else if (event.target.hasAttribute("contenteditable")) {
           // get cursor position
           let selection = window.getSelection();
