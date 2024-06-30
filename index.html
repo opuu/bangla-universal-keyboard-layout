@@ -1137,11 +1137,13 @@
 
       // listen for key combination
       input.addEventListener("keydown", (event) => {
+        if (event.metaKey || event.ctrlKey) {
+          return;
+        }
         let key = event.key.toLowerCase();
         let code = event.code;
         let shiftKey = event.shiftKey;
         let altKey = event.altKey;
-        let ctrlKey = event.ctrlKey;
 
         let letter = "";
         if (!keyboard[key]) {
