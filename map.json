@@ -1,0 +1,338 @@
+{
+  "`": {
+    "key": "ঁ",
+    "shiftKey": "`",
+    "altKey": "~",
+    "altShiftKey": "ৠ",
+    "code": "Backquote"
+  },
+  "1": {
+    "key": "১",
+    "shiftKey": "!",
+    "altKey": "৴",
+    "altShiftKey": "1",
+    "code": "Digit1"
+  },
+  "2": {
+    "key": "২",
+    "shiftKey": "@",
+    "altKey": "৵",
+    "altShiftKey": "2",
+    "code": "Digit2"
+  },
+  "3": {
+    "key": "৩",
+    "shiftKey": "#",
+    "altKey": "৶",
+    "altShiftKey": "3",
+    "code": "Digit3"
+  },
+  "4": {
+    "key": "৪",
+    "shiftKey": "৳",
+    "altKey": "₹",
+    "altShiftKey": "4",
+    "code": "Digit4"
+  },
+  "5": {
+    "key": "৫",
+    "shiftKey": "%",
+    "altKey": "৸",
+    "altShiftKey": "5",
+    "code": "Digit5"
+  },
+  "6": {
+    "key": "৬",
+    "shiftKey": "^",
+    "altKey": "৻",
+    "altShiftKey": "6",
+    "code": "Digit6"
+  },
+  "7": {
+    "key": "৭",
+    "shiftKey": "&",
+    "altKey": "ঀ",
+    "altShiftKey": "7",
+    "code": "Digit7"
+  },
+  "8": {
+    "key": "৮",
+    "shiftKey": "*",
+    "altKey": "×",
+    "altShiftKey": "8",
+    "code": "Digit8"
+  },
+  "9": {
+    "key": "৯",
+    "shiftKey": "(",
+    "altKey": "",
+    "altShiftKey": "9",
+    "code": "Digit9"
+  },
+  "0": {
+    "key": "০",
+    "shiftKey": ")",
+    "altKey": "৽",
+    "altShiftKey": "0",
+    "code": "Digit0"
+  },
+  "-": {
+    "key": "-",
+    "shiftKey": "_",
+    "altKey": "৲",
+    "altShiftKey": "৺",
+    "code": "Minus"
+  },
+  "=": {
+    "key": "=",
+    "shiftKey": "+",
+    "altKey": "≠",
+    "altShiftKey": "±",
+    "code": "Equal"
+  },
+  "q": {
+    "key": "ই",
+    "shiftKey": "ঈ",
+    "altKey": "ৢ",
+    "altShiftKey": "ৣ",
+    "code": "KeyQ"
+  },
+  "w": {
+    "key": "উ",
+    "shiftKey": "ঊ",
+    "altKey": "ৱ",
+    "altShiftKey": "°",
+    "code": "KeyW"
+  },
+  "e": {
+    "key": "ে",
+    "shiftKey": "ৈ",
+    "altKey": "এ",
+    "altShiftKey": "ঐ",
+    "code": "KeyE"
+  },
+  "r": {
+    "key": "র",
+    "shiftKey": "ৃ",
+    "altKey": "র্",
+    "altShiftKey": "ঋ",
+    "code": "KeyR"
+  },
+  "t": {
+    "key": "ত",
+    "shiftKey": "থ",
+    "altKey": "ৎ",
+    "altShiftKey": "্থ",
+    "code": "KeyT"
+  },
+  "y": {
+    "key": "য়",
+    "shiftKey": "য",
+    "altKey": "্য",
+    "altShiftKey": "ৄ",
+    "code": "KeyY"
+  },
+  "u": {
+    "key": "ু",
+    "shiftKey": "ূ",
+    "altKey": "উ",
+    "altShiftKey": "ঊ",
+    "code": "KeyU"
+  },
+  "i": {
+    "key": "ি",
+    "shiftKey": "ী",
+    "altKey": "ৗ",
+    "altShiftKey": "",
+    "code": "KeyI"
+  },
+  "o": {
+    "key": "ো",
+    "shiftKey": "ৌ",
+    "altKey": "ও",
+    "altShiftKey": "ঔ",
+    "code": "KeyO"
+  },
+  "p": {
+    "key": "প",
+    "shiftKey": "ফ",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "KeyP"
+  },
+  "[": {
+    "key": "[",
+    "shiftKey": "{",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "BracketLeft"
+  },
+  "]": {
+    "key": "]",
+    "shiftKey": "}",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "BracketRight"
+  },
+  "\\": {
+    "key": "\\",
+    "shiftKey": "|",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "Backslash"
+  },
+  "a": {
+    "key": "া",
+    "shiftKey": "আ",
+    "altKey": "অ",
+    "altShiftKey": "ও",
+    "code": "KeyA"
+  },
+  "s": {
+    "key": "স",
+    "shiftKey": "শ",
+    "altKey": "ষ",
+    "altShiftKey": "স্ব",
+    "code": "KeyS"
+  },
+  "d": {
+    "key": "দ",
+    "shiftKey": "ধ",
+    "altKey": "ড",
+    "altShiftKey": "ঢ",
+    "code": "KeyD"
+  },
+  "f": {
+    "key": "্",
+    "shiftKey": "অ",
+    "altKey": "়",
+    "altShiftKey": "৷",
+    "code": "KeyF"
+  },
+  "g": {
+    "key": "গ",
+    "shiftKey": "ঘ",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "KeyG"
+  },
+  "h": {
+    "key": "হ",
+    "shiftKey": "ঃ",
+    "altKey": "ঽ",
+    "altShiftKey": "হু",
+    "code": "KeyH"
+  },
+  "j": {
+    "key": "জ",
+    "shiftKey": "ঝ",
+    "altKey": "জ্ঞ",
+    "altShiftKey": "",
+    "code": "KeyJ"
+  },
+  "k": {
+    "key": "ক",
+    "shiftKey": "খ",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "KeyK"
+  },
+  "l": {
+    "key": "ল",
+    "shiftKey": "্ল",
+    "altKey": "ঌ",
+    "altShiftKey": "ৡ",
+    "code": "KeyL"
+  },
+  ";": {
+    "key": ";",
+    "shiftKey": ":",
+    "altKey": "ৰ",
+    "altShiftKey": "ঃ",
+    "code": "Semicolon"
+  },
+  "'": {
+    "key": "'",
+    "shiftKey": "\"",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "Quote"
+  },
+  "z": {
+    "key": "ঙ",
+    "shiftKey": "ং",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "KeyZ"
+  },
+  "x": {
+    "key": "ড",
+    "shiftKey": "ঢ",
+    "altKey": "ড়",
+    "altShiftKey": "ঢ়",
+    "code": "KeyX"
+  },
+  "c": {
+    "key": "চ",
+    "shiftKey": "ছ",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "KeyC"
+  },
+  "v": {
+    "key": "ট",
+    "shiftKey": "ঠ",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "KeyV"
+  },
+  "b": {
+    "key": "ব",
+    "shiftKey": "ভ",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "KeyB"
+  },
+  "n": {
+    "key": "ন",
+    "shiftKey": "ণ",
+    "altKey": "ঞ",
+    "altShiftKey": "্ন",
+    "code": "KeyN"
+  },
+  "m": {
+    "key": "ম",
+    "shiftKey": "ক্ষ",
+    "altKey": "ক্স",
+    "altShiftKey": "",
+    "code": "KeyM"
+  },
+  ",": {
+    "key": ",",
+    "shiftKey": "<",
+    "altKey": "≤",
+    "altShiftKey": "॥",
+    "code": "Comma"
+  },
+  ".": {
+    "key": "।",
+    "shiftKey": ">",
+    "altKey": "৹",
+    "altShiftKey": ".",
+    "code": "Period"
+  },
+  "/": {
+    "key": "/",
+    "shiftKey": "?",
+    "altKey": "÷",
+    "altShiftKey": "",
+    "code": "Slash"
+  },
+  " ": {
+    "key": " ",
+    "shiftKey": "",
+    "altKey": "",
+    "altShiftKey": "",
+    "code": "Space"
+  }
+}

@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bangla Universal Keyboard Layout</title>
+    <meta
+      name="description"
+      content="An universal easy to learn and use Bangla keyboard layout for all devices."
+    />
+    <meta
+      name="keywords"
+      content="bangla, keyboard, layout, universal, easy, learn, use, all, devices"
+    />
+    <meta name="author" content="Obaydur Rahman" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Hind Siliguri", sans-serif;
+      }
+
+      body {
+        background-color: #fff;
+        color: #333;
+        overflow: hidden;
+      }
+
+      .editor {
+        display: block;
+        width: 100%;
+        max-width: 800px;
+        margin: 4rem auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+      }
+
+      textarea {
+        width: 100%;
+        height: 200px;
+        font-size: 20px;
+        font-family: sans-serif;
+        border-radius: 5px;
+        border: none;
+        background-color: transparent;
+        box-sizing: border-box;
+      }
+
+      textarea:focus {
+        outline: none;
+      }
+
+      .keyboard {
+        display: block;
+        width: max-content;
+        max-width: max-content;
+        margin: 4rem auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-bottom: 5px solid #bbb;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .branding {
+        text-align: center;
+        margin: 0;
+        margin-bottom: 10px;
+        color: #c5c5c5;
+      }
+
+      .key {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        border-bottom: 5px solid #bbb;
+        text-align: center;
+        line-height: 30px;
+        font-size: 21px;
+        font-family: sans-serif;
+        cursor: pointer;
+      }
+
+      .key-half {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-bottom: 2px;
+      }
+
+      .key-half .key {
+        height: 20px;
+        margin: 2px;
+        font-size: 1rem;
+      }
+
+      .key.active {
+        background-color: #f0f0f0;
+        border-bottom: 3px solid #999;
+      }
+
+      .key-wide {
+        width: 110px;
+      }
+
+      .key-wider {
+        width: 130px;
+      }
+
+      .key-widest {
+        width: 150px;
+      }
+
+      .key-space {
+        width: 400px;
+      }
+
+      .key-text-original {
+        position: absolute;
+        top: -3px;
+        left: 5px;
+        font-size: 16px;
+        color: #bbb;
+      }
+
+      .number-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .letter-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .bottom-row {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .bottom-row-windows {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .key-text-shift,
+      .key-text-alt,
+      .key-text-alt-shift {
+        display: none;
+      }
+
+      .help {
+        text-align: center;
+        margin: 0;
+        margin-bottom: 20px;
+        color: #c5c5c5;
+      }
+
+      .help span {
+        display: block;
+        margin-top: 5px;
+        font-style: italic;
+      }
+
+      .footer {
+        text-align: center;
+        margin: 4rem auto;
+        color: #c5c5c5;
+      }
+
+      .footer a {
+        color: #c5c5c5;
+        text-decoration: none;
+      }
+
+      kbd {
+        background-color: #f0f0f0;
+        border: 1px solid #bbb;
+        border-radius: 2px;
+        padding: 2px 5px;
+        font-size: 14px;
+        font-family: sans-serif;
+        color: #333;
+        border-bottom: 3px solid #999;
+        margin-left: 4px;
+        margin-right: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="editor">
+      <textarea
+        name="editor"
+        id="editor"
+        cols="30"
+        rows="10"
+        placeholder="Type something..."
+        onload="(e) => e.focus()"
+      ></textarea>
+    </div>
+    <div class="keyboard">
+      <div class="branding">
+        <h1>Bangla Universal Keyboard Layout</h1>
+      </div>
+      <div class="number-row">
+        <div data-key="`" class="key">
+          <div class="key-text">`</div>
+          <div class="key-text-shift">~</div>
+          <div class="key-text-alt">`</div>
+          <div class="key-text-alt-shift">~</div>
+        </div>
+        <div data-key="1" class="key">
+          <div class="key-text">1</div>
+          <div class="key-text-shift">!</div>
+          <div class="key-text-alt">1</div>
+          <div class="key-text-alt-shift">!</div>
+        </div>
+        <div data-key="2" class="key">
+          <div class="key-text">2</div>
+          <div class="key-text-shift">@</div>
+          <div class="key-text-alt">2</div>
+          <div class="key-text-alt-shift">@</div>
+        </div>
+        <div data-key="3" class="key">
+          <div class="key-text">3</div>
+          <div class="key-text-shift">#</div>
+          <div class="key-text-alt">3</div>
+          <div class="key-text-alt-shift">#</div>
+        </div>
+        <div data-key="4" class="key">
+          <div class="key-text">4</div>
+          <div class="key-text-shift">$</div>
+          <div class="key-text-alt">4</div>
+          <div class="key-text-alt-shift">$</div>
+        </div>
+        <div data-key="5" class="key">
+          <div class="key-text">5</div>
+          <div class="key-text-shift">%</div>
+          <div class="key-text-alt">5</div>
+          <div class="key-text-alt-shift">%</div>
+        </div>
+        <div data-key="6" class="key">
+          <div class="key-text">6</div>
+          <div class="key-text-shift">^</div>
+          <div class="key-text-alt">6</div>
+          <div class="key-text-alt-shift">^</div>
+        </div>
+        <div data-key="7" class="key">
+          <div class="key-text">7</div>
+          <div class="key-text-shift">&</div>
+          <div class="key-text-alt">7</div>
+          <div class="key-text-alt-shift">&</div>
+        </div>
+        <div data-key="8" class="key">
+          <div class="key-text">8</div>
+          <div class="key-text-shift">*</div>
+          <div class="key-text-alt">8</div>
+          <div class="key-text-alt-shift">*</div>
+        </div>
+        <div data-key="9" class="key">
+          <div class="key-text">9</div>
+          <div class="key-text-shift">(</div>
+          <div class="key-text-alt">9</div>
+          <div class="key-text-alt-shift">(</div>
+        </div>
+        <div data-key="0" class="key">
+          <div class="key-text">0</div>
+          <div class="key-text-shift">)</div>
+          <div class="key-text-alt">0</div>
+          <div class="key-text-alt-shift">)</div>
+        </div>
+        <div data-key="-" class="key">
+          <div class="key-text">-</div>
+          <div class="key-text-shift">_</div>
+          <div class="key-text-alt">-</div>
+          <div class="key-text-alt-shift">_</div>
+        </div>
+        <div data-key="=" class="key">
+          <div class="key-text">=</div>
+          <div class="key-text-shift">+</div>
+          <div class="key-text-alt">=</div>
+          <div class="key-text-alt-shift">+</div>
+        </div>
+        <div data-key="backspace" class="key key-wide">
+          <div class="key-text">Backspace</div>
+          <div class="key-text-shift">Backspace</div>
+          <div class="key-text-alt">Backspace</div>
+          <div class="key-text-alt-shift">Backspace</div>
+        </div>
+      </div>
+      <div class="letter-row">
+        <div data-key="tab" class="key key-wide">
+          <div class="key-text">Tab</div>
+          <div class="key-text-shift">Tab</div>
+          <div class="key-text-alt">Tab</div>
+          <div class="key-text-alt-shift">Tab</div>
+        </div>
+        <div data-key="q" class="key">
+          <div class="key-text">q</div>
+          <div class="key-text-shift">Q</div>
+          <div class="key-text-alt">q</div>
+          <div class="key-text-alt-shift">Q</div>
+        </div>
+        <div data-key="w" class="key">
+          <div class="key-text">w</div>
+          <div class="key-text-shift">W</div>
+          <div class="key-text-alt">w</div>
+          <div class="key-text-alt-shift">W</div>
+        </div>
+        <div data-key="e" class="key">
+          <div class="key-text">e</div>
+          <div class="key-text-shift">E</div>
+          <div class="key-text-alt">e</div>
+          <div class="key-text-alt-shift">E</div>
+        </div>
+        <div data-key="r" class="key">
+          <div class="key-text">r</div>
+          <div class="key-text-shift">R</div>
+          <div class="key-text-alt">r</div>
+          <div class="key-text-alt-shift">R</div>
+        </div>
+        <div data-key="t" class="key">
+          <div class="key-text">t</div>
+          <div class="key-text-shift">T</div>
+          <div class="key-text-alt">t</div>
+          <div class="key-text-alt-shift">T</div>
+        </div>
+        <div data-key="y" class="key">
+          <div class="key-text">y</div>
+          <div class="key-text-shift">Y</div>
+          <div class="key-text-alt">y</div>
+          <div class="key-text-alt-shift">Y</div>
+        </div>
+        <div data-key="u" class="key">
+          <div class="key-text">u</div>
+          <div class="key-text-shift">U</div>
+          <div class="key-text-alt">u</div>
+          <div class="key-text-alt-shift">U</div>
+        </div>
+        <div data-key="i" class="key">
+          <div class="key-text">i</div>
+          <div class="key-text-shift">I</div>
+          <div class="key-text-alt">i</div>
+          <div class="key-text-alt-shift">I</div>
+        </div>
+        <div data-key="o" class="key">
+          <div class="key-text">o</div>
+          <div class="key-text-shift">O</div>
+          <div class="key-text-alt">o</div>
+          <div class="key-text-alt-shift">O</div>
+        </div>
+        <div data-key="p" class="key">
+          <div class="key-text">p</div>
+          <div class="key-text-shift">P</div>
+          <div class="key-text-alt">p</div>
+          <div class="key-text-alt-shift">P</div>
+        </div>
+
+        <div data-key="[" class="key">
+          <div class="key-text">[</div>
+          <div class="key-text-shift">{</div>
+          <div class="key-text-alt">[</div>
+          <div class="key-text-alt-shift">{</div>
+        </div>
+        <div data-key="]" class="key">
+          <div class="key-text">]</div>
+          <div class="key-text-shift">}</div>
+          <div class="key-text-alt">]</div>
+          <div class="key-text-alt-shift">}</div>
+        </div>
+        <div data-key="\" class="key">
+          <div class="key-text">\</div>
+          <div class="key-text-shift">|</div>
+          <div class="key-text-alt">\</div>
+          <div class="key-text-alt-shift">|</div>
+        </div>
+      </div>
+      <div class="letter-row">
+        <div data-key="caps" class="key key-wider">
+          <div class="key-text">Caps Lock</div>
+          <div class="key-text-shift">Caps Lock</div>
+          <div class="key-text-alt">Caps Lock</div>
+          <div class="key-text-alt-shift">Caps Lock</div>
+        </div>
+        <div data-key="a" class="key">
+          <div class="key-text">a</div>
+          <div class="key-text-shift">A</div>
+          <div class="key-text-alt">a</div>
+          <div class="key-text-alt-shift">A</div>
+        </div>
+        <div data-key="s" class="key">
+          <div class="key-text">s</div>
+          <div class="key-text-shift">S</div>
+          <div class="key-text-alt">s</div>
+          <div class="key-text-alt-shift">S</div>
+        </div>
+        <div data-key="d" class="key">
+          <div class="key-text">d</div>
+          <div class="key-text-shift">D</div>
+          <div class="key-text-alt">d</div>
+          <div class="key-text-alt-shift">D</div>
+        </div>
+        <div data-key="f" class="key">
+          <div class="key-text">f</div>
+          <div class="key-text-shift">F</div>
+          <div class="key-text-alt">f</div>
+          <div class="key-text-alt-shift">F</div>
+        </div>
+        <div data-key="g" class="key">
+          <div class="key-text">g</div>
+          <div class="key-text-shift">G</div>
+          <div class="key-text-alt">g</div>
+          <div class="key-text-alt-shift">G</div>
+        </div>
+        <div data-key="h" class="key">
+          <div class="key-text">h</div>
+          <div class="key-text-shift">H</div>
+          <div class="key-text-alt">h</div>
+          <div class="key-text-alt-shift">H</div>
+        </div>
+        <div data-key="j" class="key">
+          <div class="key-text">j</div>
+          <div class="key-text-shift">J</div>
+          <div class="key-text-alt">j</div>
+          <div class="key-text-alt-shift">J</div>
+        </div>
+        <div data-key="k" class="key">
+          <div class="key-text">k</div>
+          <div class="key-text-shift">K</div>
+          <div class="key-text-alt">k</div>
+          <div class="key-text-alt-shift">K</div>
+        </div>
+        <div data-key="l" class="key">
+          <div class="key-text">l</div>
+          <div class="key-text-shift">L</div>
+          <div class="key-text-alt">l</div>
+          <div class="key-text-alt-shift">L</div>
+        </div>
+        <div data-key=";" class="key">
+          <div class="key-text">;</div>
+          <div class="key-text-shift">:</div>
+          <div class="key-text-alt">;</div>
+          <div class="key-text-alt-shift">:</div>
+        </div>
+        <div data-key="'" class="key">
+          <div class="key-text">'</div>
+          <div class="key-text-shift">"</div>
+          <div class="key-text-alt">'</div>
+          <div class="key-text-alt-shift">"</div>
+        </div>
+        <div data-key="enter" class="key key-wider">
+          <div class="key-text">Enter</div>
+          <div class="key-text-shift">Enter</div>
+          <div class="key-text-alt">Enter</div>
+          <div class="key-text-alt-shift">Enter</div>
+        </div>
+      </div>
+      <div class="letter-row">
+        <div data-key="shift" class="key key-widest">
+          <div class="key-text">Shift</div>
+          <div class="key-text-shift">Shift</div>
+          <div class="key-text-alt">Shift</div>
+          <div class="key-text-alt-shift">Shift</div>
+        </div>
+        <div data-key="z" class="key">
+          <div class="key-text">z</div>
+          <div class="key-text-shift">Z</div>
+          <div class="key-text-alt">z</div>
+          <div class="key-text-alt-shift">Z</div>
+        </div>
+        <div data-key="x" class="key">
+          <div class="key-text">x</div>
+          <div class="key-text-shift">X</div>
+          <div class="key-text-alt">x</div>
+          <div class="key-text-alt-shift">X</div>
+        </div>
+        <div data-key="c" class="key">
+          <div class="key-text">c</div>
+          <div class="key-text-shift">C</div>
+          <div class="key-text-alt">c</div>
+          <div class="key-text-alt-shift">C</div>
+        </div>
+        <div data-key="v" class="key">
+          <div class="key-text">v</div>
+          <div class="key-text-shift">V</div>
+          <div class="key-text-alt">v</div>
+          <div class="key-text-alt-shift">V</div>
+        </div>
+        <div data-key="b" class="key">
+          <div class="key-text">b</div>
+          <div class="key-text-shift">B</div>
+          <div class="key-text-alt">b</div>
+          <div class="key-text-alt-shift">B</div>
+        </div>
+        <div data-key="n" class="key">
+          <div class="key-text">n</div>
+          <div class="key-text-shift">N</div>
+          <div class="key-text-alt">n</div>
+          <div class="key-text-alt-shift">N</div>
+        </div>
+        <div data-key="m" class="key">
+          <div class="key-text">m</div>
+          <div class="key-text-shift">M</div>
+          <div class="key-text-alt">m</div>
+          <div class="key-text-alt-shift">M</div>
+        </div>
+        <div data-key="," class="key">
+          <div class="key-text">,</div>
+          <div class="key-text-shift">&lt;</div>
+          <div class="key-text-alt">,</div>
+          <div class="key-text-alt-shift">&lt;</div>
+        </div>
+        <div data-key="." class="key">
+          <div class="key-text">.</div>
+          <div class="key-text-shift">&gt;</div>
+          <div class="key-text-alt">.</div>
+          <div class="key-text-alt-shift">&gt;</div>
+        </div>
+        <div data-key="/" class="key">
+          <div class="key-text">/</div>
+          <div class="key-text-shift">?</div>
+          <div class="key-text-alt">/</div>
+          <div class="key-text-alt-shift">?</div>
+        </div>
+        <div data-key="shift" class="key key-widest">
+          <div class="key-text">Shift</div>
+          <div class="key-text-shift">Shift</div>
+          <div class="key-text-alt">Shift</div>
+          <div class="key-text-alt-shift">Shift</div>
+        </div>
+      </div>
+      <div class="bottom-row bottom-row-windows">
+        <div data-key="ctrl" class="key">
+          <div class="key-text">Ctrl</div>
+          <div class="key-text-shift">Ctrl</div>
+          <div class="key-text-alt">Ctrl</div>
+          <div class="key-text-alt-shift">Ctrl</div>
+        </div>
+        <div data-key="fn" class="key">
+          <div class="key-text">Fn</div>
+          <div class="key-text-shift">Fn</div>
+          <div class="key-text-alt">Fn</div>
+          <div class="key-text-alt-shift">Fn</div>
+        </div>
+        <div data-key="win" class="key">
+          <div class="key-text">Win</div>
+          <div class="key-text-shift">Win</div>
+          <div class="key-text-alt">Win</div>
+          <div class="key-text-alt-shift">Win</div>
+        </div>
+        <div data-key="alt" class="key">
+          <div class="key-text">Alt</div>
+          <div class="key-text-shift">Alt</div>
+          <div class="key-text-alt">Alt</div>
+          <div class="key-text-alt-shift">Alt</div>
+        </div>
+        <div data-key=" " class="key key-space">
+          <div class="key-text">Space</div>
+          <div class="key-text-shift">Space</div>
+          <div class="key-text-alt">Space</div>
+          <div class="key-text-alt-shift">Space</div>
+        </div>
+        <div data-key="alt" class="key">
+          <div class="key-text">Alt</div>
+          <div class="key-text-shift">Alt</div>
+          <div class="key-text-alt">Alt</div>
+          <div class="key-text-alt-shift">Alt</div>
+        </div>
+        <div data-key="ctrl" class="key">
+          <div class="key-text">Ctrl</div>
+          <div class="key-text-shift">Ctrl</div>
+          <div class="key-text-alt">Ctrl</div>
+          <div class="key-text-alt-shift">Ctrl</div>
+        </div>
+        <div data-key="right" class="key-half">
+          <div data-key="left" class="key">
+            <div class="key-text">←</div>
+            <div class="key-text-shift">←</div>
+            <div class="key-text-alt">←</div>
+            <div class="key-text-alt-shift">←</div>
+          </div>
+        </div>
+        <div data-key="up-down" class="key-half">
+          <div data-key="up" class="key">
+            <div class="key-text">↑</div>
+            <div class="key-text-shift">↑</div>
+            <div class="key-text-alt">↑</div>
+            <div class="key-text-alt-shift">↑</div>
+          </div>
+          <div data-key="down" class="key">
+            <div class="key-text">↓</div>
+            <div class="key-text-shift">↓</div>
+            <div class="key-text-alt">↓</div>
+            <div class="key-text-alt-shift">↓</div>
+          </div>
+        </div>
+        <div data-key="right" class="key-half">
+          <div data-key="right" class="key">
+            <div class="key-text">→</div>
+            <div class="key-text-shift">→</div>
+            <div class="key-text-alt">→</div>
+            <div class="key-text-alt-shift">→</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p class="help">
+        Press <kbd>Shift</kbd> and/or <kbd>Alt</kbd>/<kbd>Option</kbd> to see
+        <span>
+          <kbd>Shift</kbd> + <kbd>A</kbd> or <kbd>Alt</kbd> + <kbd>A</kbd> or
+          <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>
+        </span>
+      </p>
+      <p>
+        Made with ❤️ by
+        <a href="https://opu.rocks" target="_blank">Obaydur Rahman</a>
+      </p>
+    </div>
+    <script>
+      let keyboard = {
+        "`": {
+          key: "ঁ",
+          shiftKey: "`",
+          altKey: "~",
+          altShiftKey: "ৠ",
+          code: "Backquote",
+        },
+        1: {
+          key: "১",
+          shiftKey: "!",
+          altKey: "৴",
+          altShiftKey: "1",
+          code: "Digit1",
+        },
+        2: {
+          key: "২",
+          shiftKey: "@",
+          altKey: "৵",
+          altShiftKey: "2",
+          code: "Digit2",
+        },
+        3: {
+          key: "৩",
+          shiftKey: "#",
+          altKey: "৶",
+          altShiftKey: "3",
+          code: "Digit3",
+        },
+        4: {
+          key: "৪",
+          shiftKey: "৳",
+          altKey: "₹",
+          altShiftKey: "4",
+          code: "Digit4",
+        },
+        5: {
+          key: "৫",
+          shiftKey: "%",
+          altKey: "৸",
+          altShiftKey: "5",
+          code: "Digit5",
+        },
+        6: {
+          key: "৬",
+          shiftKey: "^",
+          altKey: "৻",
+          altShiftKey: "6",
+          code: "Digit6",
+        },
+        7: {
+          key: "৭",
+          shiftKey: "&",
+          altKey: "ঀ",
+          altShiftKey: "7",
+          code: "Digit7",
+        },
+        8: {
+          key: "৮",
+          shiftKey: "*",
+          altKey: "×",
+          altShiftKey: "8",
+          code: "Digit8",
+        },
+        9: {
+          key: "৯",
+          shiftKey: "(",
+          altKey: "",
+          altShiftKey: "9",
+          code: "Digit9",
+        },
+        0: {
+          key: "০",
+          shiftKey: ")",
+          altKey: "৽",
+          altShiftKey: "0",
+          code: "Digit0",
+        },
+        "-": {
+          key: "-",
+          shiftKey: "_",
+          altKey: "৲",
+          altShiftKey: "৺",
+          code: "Minus",
+        },
+        "=": {
+          key: "=",
+          shiftKey: "+",
+          altKey: "≠",
+          altShiftKey: "±",
+          code: "Equal",
+        },
+        q: {
+          key: "ই",
+          shiftKey: "ঈ",
+          altKey: "ৢ",
+          altShiftKey: "ৣ",
+          code: "KeyQ",
+        },
+        w: {
+          key: "উ",
+          shiftKey: "ঊ",
+          altKey: "ৱ",
+          altShiftKey: "°",
+          code: "KeyW",
+        },
+        e: {
+          key: "ে",
+          shiftKey: "ৈ",
+          altKey: "এ",
+          altShiftKey: "ঐ",
+          code: "KeyE",
+        },
+        r: {
+          key: "র",
+          shiftKey: "ৃ",
+          altKey: "র্",
+          altShiftKey: "ঋ",
+          code: "KeyR",
+        },
+        t: {
+          key: "ত",
+          shiftKey: "থ",
+          altKey: "ৎ",
+          altShiftKey: "্থ",
+          code: "KeyT",
+        },
+        y: {
+          key: "য়",
+          shiftKey: "য",
+          altKey: "্য",
+          altShiftKey: "ৄ",
+          code: "KeyY",
+        },
+        u: {
+          key: "ু",
+          shiftKey: "ূ",
+          altKey: "উ",
+          altShiftKey: "ঊ",
+          code: "KeyU",
+        },
+        i: {
+          key: "ি",
+          shiftKey: "ী",
+          altKey: "ৗ",
+          altShiftKey: "",
+          code: "KeyI",
+        },
+        o: {
+          key: "ো",
+          shiftKey: "ৌ",
+          altKey: "ও",
+          altShiftKey: "ঔ",
+          code: "KeyO",
+        },
+        p: {
+          key: "প",
+          shiftKey: "ফ",
+          altKey: "",
+          altShiftKey: "",
+          code: "KeyP",
+        },
+        "[": {
+          key: "[",
+          shiftKey: "{",
+          altKey: "",
+          altShiftKey: "",
+          code: "BracketLeft",
+        },
+        "]": {
+          key: "]",
+          shiftKey: "}",
+          altKey: "",
+          altShiftKey: "",
+          code: "BracketRight",
+        },
+        "\\": {
+          key: "\\",
+          shiftKey: "|",
+          altKey: "",
+          altShiftKey: "",
+          code: "Backslash",
+        },
+        a: {
+          key: "া",
+          shiftKey: "আ",
+          altKey: "অ",
+          altShiftKey: "ও",
+          code: "KeyA",
+        },
+        s: {
+          key: "স",
+          shiftKey: "শ",
+          altKey: "ষ",
+          altShiftKey: "স্ব",
+          code: "KeyS",
+        },
+        d: {
+          key: "দ",
+          shiftKey: "ধ",
+          altKey: "ড",
+          altShiftKey: "ঢ",
+          code: "KeyD",
+        },
+        f: {
+          key: "্",
+          shiftKey: "অ",
+          altKey: "়",
+          altShiftKey: "৷",
+          code: "KeyF",
+        },
+        g: {
+          key: "গ",
+          shiftKey: "ঘ",
+          altKey: "",
+          altShiftKey: "",
+          code: "KeyG",
+        },
+        h: {
+          key: "হ",
+          shiftKey: "ঃ",
+          altKey: "ঽ",
+          altShiftKey: "হু",
+          code: "KeyH",
+        },
+        j: {
+          key: "জ",
+          shiftKey: "ঝ",
+          altKey: "জ্ঞ",
+          altShiftKey: "",
+          code: "KeyJ",
+        },
+        k: {
+          key: "ক",
+          shiftKey: "খ",
+          altKey: "",
+          altShiftKey: "",
+          code: "KeyK",
+        },
+        l: {
+          key: "ল",
+          shiftKey: "্ল",
+          altKey: "ঌ",
+          altShiftKey: "ৡ",
+          code: "KeyL",
+        },
+        ";": {
+          key: ";",
+          shiftKey: ":",
+          altKey: "ৰ",
+          altShiftKey: "ঃ",
+          code: "Semicolon",
+        },
+        "'": {
+          key: "'",
+          shiftKey: '"',
+          altKey: "",
+          altShiftKey: "",
+          code: "Quote",
+        },
+        z: {
+          key: "ঙ",
+          shiftKey: "ং",
+          altKey: "",
+          altShiftKey: "",
+          code: "KeyZ",
+        },
+        x: {
+          key: "ড",
+          shiftKey: "ঢ",
+          altKey: "ড়",
+          altShiftKey: "ঢ়",
+          code: "KeyX",
+        },
+        c: {
+          key: "চ",
+          shiftKey: "ছ",
+          altKey: "",
+          altShiftKey: "",
+          code: "KeyC",
+        },
+        v: {
+          key: "ট",
+          shiftKey: "ঠ",
+          altKey: "",
+          altShiftKey: "",
+          code: "KeyV",
+        },
+        b: {
+          key: "ব",
+          shiftKey: "ভ",
+          altKey: "",
+          altShiftKey: "",
+          code: "KeyB",
+        },
+        n: {
+          key: "ন",
+          shiftKey: "ণ",
+          altKey: "ঞ",
+          altShiftKey: "্ন",
+          code: "KeyN",
+        },
+        m: {
+          key: "ম",
+          shiftKey: "ক্ষ",
+          altKey: "ক্স",
+          altShiftKey: "",
+          code: "KeyM",
+        },
+        ",": {
+          key: ",",
+          shiftKey: "<",
+          altKey: "≤",
+          altShiftKey: "॥",
+          code: "Comma",
+        },
+        ".": {
+          key: "।",
+          shiftKey: ">",
+          altKey: "৹",
+          altShiftKey: ".",
+          code: "Period",
+        },
+        "/": {
+          key: "/",
+          shiftKey: "?",
+          altKey: "÷",
+          altShiftKey: "",
+          code: "Slash",
+        },
+        " ": {
+          key: " ",
+          shiftKey: "",
+          altKey: "",
+          altShiftKey: "",
+          code: "Space",
+        },
+      };
+
+      // detect if mac or windows
+      let isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+
+      // if mac, change the alt key to option
+      if (isMac) {
+        document.querySelectorAll('[data-key="alt"]').forEach((key) => {
+          key.querySelector(".key-text").textContent = "⌥";
+          key.querySelector(".key-text-shift").textContent = "⌥";
+          key.querySelector(".key-text-alt").textContent = "⌥";
+          key.querySelector(".key-text-alt-shift").textContent = "⌥";
+        });
+
+        // change the win key to cmd
+        document.querySelectorAll('[data-key="win"]').forEach((key) => {
+          key.querySelector(".key-text").textContent = "⌘";
+          key.querySelector(".key-text-shift").textContent = "⌘";
+          key.querySelector(".key-text-alt").textContent = "⌘";
+          key.querySelector(".key-text-alt-shift").textContent = "⌘";
+        });
+      }
+
+      let is_alt = false;
+      let is_shift = false;
+
+      window.addEventListener("keydown", (event) => {
+        document.querySelector("#editor").focus();
+        if (event.key === "Alt") {
+          is_alt = true;
+          document.querySelectorAll('[data-key="alt"]').forEach((key) => {
+            key.classList.add("active");
+          });
+        } else if (event.key === "Shift") {
+          is_shift = true;
+          document.querySelectorAll('[data-key="shift"]').forEach((key) => {
+            key.classList.add("active");
+          });
+        } else if (event.key === "CapsLock") {
+          document.querySelectorAll('[data-key="caps"]').forEach((key) => {
+            key.classList.toggle("active");
+          });
+        }
+        let key = document.querySelector(`[data-key="${event.key}"]`);
+        if (key) {
+          key.classList.add("active");
+        }
+        updateKeyText();
+      });
+
+      window.addEventListener("keyup", (event) => {
+        if (event.key === "Alt") {
+          is_alt = false;
+          document.querySelectorAll('[data-key="alt"]').forEach((key) => {
+            key.classList.remove("active");
+          });
+        } else if (event.key === "Shift") {
+          is_shift = false;
+          document.querySelectorAll('[data-key="shift"]').forEach((key) => {
+            key.classList.remove("active");
+          });
+        } else if (event.key === "CapsLock") {
+          document.querySelectorAll('[data-key="caps"]').forEach((key) => {
+            key.classList.toggle("active");
+          });
+        }
+
+        // get the key and remove active class from it
+        let key = document.querySelector(`[data-key="${event.key}"]`);
+        if (key) {
+          key.classList.remove("active");
+        }
+        updateKeyText();
+      });
+
+      // if alt key is pressed show alt key text, if shift key is pressed show shift key text, if both are pressed show alt shift key text
+      function updateKeyText() {
+        let keys = document.querySelectorAll(".key");
+        keys.forEach((key) => {
+          let keyData = keyboard[key.dataset.key];
+          if (is_alt && is_shift) {
+            key.querySelector(".key-text").style.display = "none";
+            key.querySelector(".key-text-shift").style.display = "none";
+            key.querySelector(".key-text-alt").style.display = "none";
+            key.querySelector(".key-text-alt-shift").style.display = "block";
+          } else if (is_alt) {
+            key.querySelector(".key-text").style.display = "none";
+            key.querySelector(".key-text-shift").style.display = "none";
+            key.querySelector(".key-text-alt").style.display = "block";
+            key.querySelector(".key-text-alt-shift").style.display = "none";
+          } else if (is_shift) {
+            key.querySelector(".key-text").style.display = "none";
+            key.querySelector(".key-text-shift").style.display = "block";
+            key.querySelector(".key-text-alt").style.display = "none";
+            key.querySelector(".key-text-alt-shift").style.display = "none";
+          } else {
+            key.querySelector(".key-text").style.display = "block";
+            key.querySelector(".key-text-shift").style.display = "none";
+            key.querySelector(".key-text-alt").style.display = "none";
+            key.querySelector(".key-text-alt-shift").style.display = "none";
+          }
+        });
+      }
+
+      // listen for alt, shift and capslock key press (the buttons from html)
+      document.querySelectorAll(".key").forEach((key) => {
+        key.addEventListener("click", () => {
+          if (key.dataset.key === "alt") {
+            is_alt = !is_alt;
+            // add active class to the alt key if it is pressed
+            if (is_alt) {
+              document.querySelectorAll('[data-key="alt"]').forEach((key) => {
+                key.classList.add("active");
+              });
+            } else {
+              document.querySelectorAll('[data-key="alt"]').forEach((key) => {
+                key.classList.remove("active");
+              });
+            }
+          } else if (key.dataset.key === "shift") {
+            is_shift = !is_shift;
+            // add active class to the shift key if it is pressed
+            if (is_shift) {
+              document.querySelectorAll('[data-key="shift"]').forEach((key) => {
+                key.classList.add("active");
+              });
+            } else {
+              document.querySelectorAll('[data-key="shift"]').forEach((key) => {
+                key.classList.remove("active");
+              });
+            }
+          }
+          updateKeyText();
+        });
+      });
+
+      // replace the key texts with the corresponding key texts from the keyboard object
+      function updateKeyboard() {
+        let keys = document.querySelectorAll(".key");
+        keys.forEach((key) => {
+          let keyData = keyboard[key.dataset.key];
+          if (keyData) {
+            let originalKey = key.querySelector(".key-text").textContent;
+            let div = document.createElement("div");
+            div.classList.add("key-text-original");
+            div.textContent = originalKey;
+            key.appendChild(div);
+            key.querySelector(".key-text").textContent = keyData.key;
+            key.querySelector(".key-text-shift").textContent = keyData.shiftKey;
+            key.querySelector(".key-text-alt").textContent = keyData.altKey;
+            key.querySelector(".key-text-alt-shift").textContent =
+              keyData.altShiftKey;
+          }
+        });
+      }
+
+      updateKeyboard();
+
+      let input = document.querySelector("#editor");
+
+      // listen for key combination
+      input.addEventListener("keydown", (event) => {
+        let key = event.key.toLowerCase();
+        let code = event.code;
+        let shiftKey = event.shiftKey;
+        let altKey = event.altKey;
+        let ctrlKey = event.ctrlKey;
+
+        let letter = "";
+        if (!keyboard[key]) {
+          Object.values(keyboard).forEach((value, index) => {
+            if (value.code === code) {
+              key = Object.keys(keyboard)[index];
+            }
+          });
+        }
+
+        if (keyboard[key] && shiftKey && altKey) {
+          event.preventDefault();
+          letter = keyboard[key].altShiftKey;
+        } else if (keyboard[key] && shiftKey) {
+          event.preventDefault();
+          letter = keyboard[key].shiftKey;
+        } else if (keyboard[key] && altKey) {
+          event.preventDefault();
+          letter = keyboard[key].altKey;
+        } else if (keyboard[key]) {
+          event.preventDefault();
+          letter = keyboard[key].key;
+        }
+
+        if (
+          event.target.nodeName === "INPUT" ||
+          event.target.nodeName === "TEXTAREA"
+        ) {
+          let cursorPosition = event.target.selectionStart;
+          let text = event.target.value;
+          let newText =
+            text.slice(0, cursorPosition) + letter + text.slice(cursorPosition);
+          event.target.value = newText;
+          event.target.selectionStart = cursorPosition + 1;
+          event.target.selectionEnd = cursorPosition + 1;
+        } else if (event.target.hasAttribute("contenteditable")) {
+          // get cursor position
+          let selection = window.getSelection();
+          let range = selection.getRangeAt(0);
+          range.deleteContents();
+          range.insertNode(document.createTextNode(letter));
+          range.collapse(false);
+        }
+      });
+    </script>
+  </body>
+</html>
