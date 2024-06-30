@@ -9,7 +9,7 @@ This is a universal keyboard layout for Bangla language with all available bangl
 - Most used letters are placed in easy-to-reach positions.
 - Available for Windows, Linux, and macOS. (Coming soon)
 
-> For now, I have created a web-based demo for this layout, please try it out [here](https://opu.rocks/bangla-keyboard) and let me know your feedback by creating issues. After finalizing the key mapping, I will create the layout for Windows, Linux, and macOS.
+> For now, I have created a web-based demo for this layout, please try it out [here](https://opuu.github.io/bangla-universal-keyboard-layout/) and let me know your feedback by creating issues. After finalizing the key mapping, I will create the layout for Windows, Linux, and macOS.
 
 ## Key Mapping
 
